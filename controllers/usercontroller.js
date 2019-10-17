@@ -23,15 +23,14 @@ export const postjoin = async (req, res) => {
 		res.status(400);
 	} else {
 		try {
-			const user = await User({
-				name,
-				email
-			});
-			console.log(user);
-			await User.register(user, password);
-		} catch (error) {
-			console.log(error);
-		}
+            const user = await User({
+              name,
+              email
+            });
+            await User.register(user, password);
+          } catch (error) {
+            console.log(error);
+          }
 		// To Do: Log user in``
 		res.redirect(routes.home);
 	}

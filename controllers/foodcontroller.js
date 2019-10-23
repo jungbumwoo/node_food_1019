@@ -28,8 +28,6 @@ export const postUpload = async (req, res) => {
 		title,
 		description
 	});
-	console.log(newFood);
-	console.log(routes.foodDetail(newFood.id));
 	res.redirect(routes.foodDetail(newFood.id));
 };
 

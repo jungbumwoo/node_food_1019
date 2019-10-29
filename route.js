@@ -1,7 +1,13 @@
 const HOME = '/';
 const USER = '/user';
 const USER_DETAIL = '/userdetail';
+
 const LOGIN = '/login';
+const LOCALLOGIN = '/locallogin';
+const FACEBOOKLOGIN = '/facebooklogin';
+const INSTAGRAMLOGIN = '/instagramlogin';
+const GITHUBLOGIN = '/githublogin';
+
 
 const JOIN = '/join';
 
@@ -22,6 +28,11 @@ const routes = {
 		}
 	},
 	login: LOGIN,
+	locallogin: LOCALLOGIN,
+	facebooklogin: FACEBOOKLOGIN,
+	instagramlogin: INSTAGRAMLOGIN,
+	githublogin : GITHUBLOGIN,
+
 	join: JOIN,
 
 	food: FOOD,

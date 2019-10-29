@@ -3,8 +3,11 @@ import multer from 'multer';
 
 const multerFood = multer({ dest: 'uploads/food' });
 
-export const middlewareRoutes = (req, res, next) => {
+export const localsMiddleware = (req, res, next) => {
+	res.locals.siteName = "NodeFood"
 	res.locals.routes = routes;
+	res.locals.user = req.user || null;
+	console.log(req.user);
 	next();
 };
 

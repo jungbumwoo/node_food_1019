@@ -1,14 +1,31 @@
 header
-    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css")
+    script(src="https://kit.fontawesome.com/e72e6ac7f0.js" crossorigin="anonymous")
     .header__column
         a(href=routes.home)
-            i.fas.fa-utensils
-    style.
-        i {
-            color: orange;
-            margin: 20px 20px;
+            i.fas.fa-utensils.fa-2x
+        style.
+            i {
+                color: orange;
+                margin: 20px 20px;
 
-        },
-        .header__column {
-            width: 100px;
-        }
+            },
+            .header__column {
+                width: 100px;
+            }        
+
+    .header__column
+        ul
+        if !user
+            li
+                a(href=routes.join) Join
+            li
+                a(href=routes.login) Log In
+        else 
+            li
+                a(href=`/food${routes.fileUpload}`) Upload
+            li
+                a(href=routes.userDetail(user.id)) Profile
+            li
+                a(href=routes.logout) Log Out
+
+    

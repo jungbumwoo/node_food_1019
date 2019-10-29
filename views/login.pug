@@ -1,4 +1,10 @@
 extends layouts/main
 
 block content
-    p login
+    p localLogin
+    form(action="/locallogin" method="post" name="frm_login" id="frm_login") 
+        input(type="text" name="sibauser") 
+        input(type="password" name="sibapwd")
+        input(type="submit"  value="Login")
+
+    

@@ -13,7 +13,9 @@ import './model/Food';
 import './model/Comment';
 import './model/User';
 import passport from "passport";
+import mongoose from "mongoose";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import GitHubStrategy from "passport-github";
 import "./passport";
 import path from "path";
@@ -21,6 +23,8 @@ import path from "path";
 
 
 const app = express();
+
+const CokieStore = MongoStore(session);
 
 app.set('view engine', 'pug');
 
@@ -40,7 +44,8 @@ app.use(morgan("dev"));
 app.use(session({
   secret:" !$GFAERFZSDFsdfafe!#$DFSdfa",
   resave: true,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: new CokieStore({mongooseConnection: mongoose.connection})
 }))
 
 app.use(passport.initialize());

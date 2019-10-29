@@ -55,10 +55,17 @@ export const postjoin = async (req, res, next) => {
 	}
 };
 
-export const postlogin = (req, res) => passport.authenticate("local", {
-	failureRedirect: routes.login,
-	successRedirect: routes.home
-});
+export const postlogin = (req, res) => {
+	try {
+		passport.authenticate("local", {
+			failureRedirect: routes.login,
+			successRedirect: routes.home
+		})
+	} catch (error) {
+		console.log(error);
+		res.redirect(routes.join)
+	}
+};
 
 export const userDetail = (req, res) => {
 	res.render('userDetail');

@@ -76,6 +76,7 @@ app.get('/auth/github/callback',
   });
 
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes.home, globalRouter);
 app.use(routes.food, foodRouter);
 
